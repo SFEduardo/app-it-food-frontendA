@@ -87,7 +87,7 @@ export function useGetUser() {
   const { getAccessTokenSilently } = useAuth0()
 
   //Funcion para obtener todos los usuarios//Peticion dal backend
-  const getUserRequest = async (): Promise<BackendUser> => {
+  const getUserRequest = async (): Promise<BackEndUser> => {
     const accessToken = await getAccessTokenSilently()
     const res = await fetch(API_BASE_URL + "/api/user", {
       method: "GET",
