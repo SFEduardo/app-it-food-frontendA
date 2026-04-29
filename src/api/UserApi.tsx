@@ -1,7 +1,7 @@
 //variable con la direccion de backend
 //API_BASE_URL = HTTP://localhost:3000 <-- DESPUES SE CAMBIARA EN LA NUBE
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
-import type { User, UpdateUser, BackendUser } from "./types"
+import type { User, UpdateUser, BackEndUser } from "./types"
 import { useMutation, useQueryClient, useQuery } from "@tanstack/react-query"
 import { useAuth0 } from "@auth0/auth0-react"
 import { toast } from "sonner"
