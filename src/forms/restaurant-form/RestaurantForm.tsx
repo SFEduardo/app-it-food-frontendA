@@ -102,11 +102,11 @@ export default function RestaurantForm({
   useEffect(() => {
     if (initialValues) {
       form.reset({
-        restaurantName: initialValues.restaurantName,
+        restaurantName: initialValues.restauranteName,
         city: initialValues.city,
         country: initialValues.country,
-        deliveryPrice: initialValues.deliveryPrice,
-        estimatedDeliveryTime: initialValues.estimatedDeliveryTime,
+        deliveryPrice: parseFloat(initialValues.deliverPrice) || 0,
+        estimatedDeliveryTime: parseInt(initialValues.estimatedDeliveryTime) || 0,
         cuisines: initialValues.cuisines.length ? initialValues.cuisines : [],
         menuItems:
           initialValues.menuItems.length > 0
