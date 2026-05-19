@@ -12,6 +12,12 @@ export default function MobilNavLinks() {
       >
         Perfil
       </Link>
+      <Link
+        to="/restaurante"
+        className="mx-4 flex items-center px-3 font-bold hover:text-orange-500"
+      >
+        Restaurante
+      </Link>
       <Button
         onClick={() => logout()}
         className="mx-4 flex items-center px-3 font-bold hover:text-orange-500"

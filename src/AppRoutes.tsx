@@ -1,41 +1,34 @@
-import { Navigate, Route, Routes } from "react-router"
-import Layout from "./layouts/Layout"
-import HomePage from "./pages/HomePage"
-import AuthCallbackPage from "./pages/AuthCallbackPages"
-import { QueryClientProvider } from "@tanstack/react-query"
-import queryClient from "./api/queryClient"
-import UserProfilePage from "./pages/UserProfilePage"
-import ProtectedRoute from "./auth/ProtectedRoute"
+import { Navigate, Route, Routes } from "react-router";
+import Layout from "./layouts/Layout";
+import HomePage from "./pages/HomePage";
+import AuthCallbackPage from "./pages/AuthCallbackPage";
+import { QueryClientProvider } from "@tanstack/react-query";
+import queryClient from "./api/queryClient";
+import UserProfilePage from "./pages/UserProfilePage";
+import ProtectedRoute from "./auth/ProtectedRoute";
+import ManageRestaurantPage from "./pages/ManageRestaurantPage";
+import SearchPage from "./pages/SearchPage";
 
 const AppRoutes = () => {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <Routes>
-        /* Rutas públicas */
-        <Route
-          path="/"
-          element={
-            <Layout showHero={true}>
-              <HomePage />
-            </Layout>
-          }
-        />
-        <Route path="/auth-callback" element={<AuthCallbackPage />} />
-        /* Rutas protegidas */
-        <Route element={<ProtectedRoute />}>
-          <Route
-            path="/user-profile"
-            element={
-              <Layout>
-                <UserProfilePage />
-              </Layout>
-            }
-          />
-        </Route>
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </QueryClientProvider>
-  )
+    return (
+        <QueryClientProvider client={queryClient}>
+            <Routes>
+                {/* Rutas publicas */}
+                <Route path="/" element={<Layout showHero={true}><HomePage /></Layout>} />
+                <Route path="/search/:city" element={<Layout showHero={false}><SearchPage /></Layout>} />
+                <Route path="/auth-callback" element={<AuthCallbackPage />} />
+                {/* Proteccion de rutas */}
+                <Route element={<ProtectedRoute />}>
+                    <Route path="/user-profile" element={<Layout><UserProfilePage /></Layout>} />
+                    <Route path='/manage-restaurant' element={
+                        <Layout>
+                            <ManageRestaurantPage />
+                        </Layout>
+                    } />
+                </Route>
+                <Route path="*" element={<Navigate to="/" />} />
+            </Routes>
+        </QueryClientProvider>
+    )
 }
-
-export default AppRoutes
+export default AppRoutes;

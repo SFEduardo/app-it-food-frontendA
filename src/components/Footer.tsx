@@ -1,15 +1,15 @@
-export default function Footer() {
-  return (
-    <div className="bg-orange-500 py-10">
-      <div className="container mx-auto flex flex-col items-center justify-between md:flex-row">
-        <span className="text-3x1 font-blod tracking-tight text-white">
-          AppITZFood.com
-        </span>
-        <span className="font-blod flex gap-4 tracking-tight text-white">
-          <span>Politica de privacidad</span>
-          <span>Terminos del servicio</span>
-        </span>
-      </div>
-    </div>
-  )
+export default function Footer(){
+    return(
+        <div className="bg-orange-500 py-10">
+            <div className="container mx-auto felx flex-col md:flex-row justify-between items-center">
+                <span className="text-3xl text-white font-bold tracking-tight">
+                    AppITZFood.com
+                </span>
+                <span className="text-white font-bold tracking-tight flex gap-4">
+                    <span>Politica de privacidad</span>
+                    <span>Terminos del servicio</span>
+                </span>
+            </div>
+        </div>
+    )
 }
