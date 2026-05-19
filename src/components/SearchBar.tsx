@@ -1,7 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { SearchIcon } from "lucide-react";
+
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Form, FormControl, FormField, FormItem } from "./ui/form";

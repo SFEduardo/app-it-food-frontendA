@@ -12,15 +12,15 @@ export default function ManageRestaurantPage() {
     useGetRestaurante()
   const isLoading =
     isLoadingRestaurante ||
-    createRestauranteRequest.isLoading ||
-    updateRestauranteRequest.isLoading
+    createRestauranteRequest.isPending ||
+    updateRestauranteRequest.isPending
   const onSave = restaurante
     ? updateRestauranteRequest.mutate
     : createRestauranteRequest.mutate
 
   return (
     <ManageRestaurantForm
-      restaurante={restaurante}
+      restaurante={restaurante || undefined}
       onSave={onSave}
       isLoading={isLoading}
     />

@@ -20,9 +20,9 @@ import {
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Plus, Trash2 } from "lucide-react"
-import type { BackEndRestaurant } from "@/api/types"
+import type { Restaurante } from "@/api/types"
 import { useEffect } from "react"
-import { restaurantCuisineOptions } from "@/config/restaurant-options-config"
+import { cuisineList } from "@/config/restaurant-options-config"
 
 const baseSchema = z.object({
   restaurantName: z.string().min(1, "El nombre del restaurante es requerido"),
@@ -66,7 +66,7 @@ export type RestaurantFormValues = z.infer<typeof updateRestaurantSchema>
 
 type Props = {
   onSave: (data: RestaurantFormValues) => void
-  initialValues?: BackEndRestaurant
+  initialValues?: Restaurante
   isSaving: boolean
 }
 
@@ -219,7 +219,7 @@ export default function RestaurantForm({
               </p>
             </div>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-              {restaurantCuisineOptions.map((cuisine) => {
+              {cuisineList.map((cuisine: string) => {
                 const currentValue = form.watch("cuisines") ?? []
                 const isChecked = currentValue.includes(cuisine)
 

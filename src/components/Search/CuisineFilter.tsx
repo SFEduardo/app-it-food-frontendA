@@ -1,7 +1,7 @@
 import { cuisineList } from "../../config/restaurant-options-config";
 import { Label } from "../ui/label";
 import { Check, ChevronDown, ChevronUp } from "lucide-react";
-import { ChangeEvent } from "react";
+import type { ChangeEvent } from "react";
 import { Button } from "../ui/button";
 
 type Props = {
