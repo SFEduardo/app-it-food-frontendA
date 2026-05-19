@@ -15,7 +15,7 @@ const SearchResultCard = ({ restaurant }: Props) => {
     >
       <AspectRatio ratio={16 / 6}>
         <img
-          src={restaurant.imageUrl}
+          src={restaurant.imageUrl.replace("http://", "https://")}
           className="rounded-md w-full h-full object-cover"
         />
       </AspectRatio>

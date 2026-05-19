@@ -7,6 +7,13 @@ export default function ImageSection() {
     const { control, watch } = useFormContext();
 
     const existingImageUrl = watch('imageUrl');
+    const imageFile = watch('imageFile');
+
+    // Muestra la imagen nueva si se seleccionó una, de lo contrario la que ya estaba guardada.
+    const previewUrl = imageFile
+        ? URL.createObjectURL(imageFile)
+        : (typeof existingImageUrl === "string" ? existingImageUrl.replace("http://", "https://") : existingImageUrl);
+
     return (
         <div className="space-y-2">
             <div>
@@ -18,9 +25,9 @@ export default function ImageSection() {
             </div>
             <div className="flex flex-col gap-8 md:w-[50%]">
                 {
-                    existingImageUrl && (
+                    previewUrl && (
                         <AspectRatio ratio={16 / 9}>
-                            <img src={existingImageUrl} className="rounded-md object-cover h-full w-full" />
+                            <img src={previewUrl} className="rounded-md object-cover h-full w-full" />
                         </AspectRatio>
                     )
                 }

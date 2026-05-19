@@ -35,12 +35,12 @@ const CuisineFilter = ({
   return (
     <>
       <div className="flex justify-between items-center px-2">
-        <div className="text-md font-semibold mb-2">Filtrar por cocina</div>
+        <div className="text-md font-semibold mb-2">Filtrar por tipo de cocina</div>
         <div
           onClick={handleCuisinesReset}
           className="text-sm font-semibold mb-2 underline cursor-pointer text-blue-500"
         >
-          Limpiar Filtros
+          Limpiar filtro
         </div>
       </div>
 
@@ -77,15 +77,15 @@ const CuisineFilter = ({
         <Button
           onClick={onExpandedClick}
           variant="link"
-          className="mt-4 flex-1"
+          className="mt-4 flex-1 text-orange-500 font-semibold"
         >
           {isExpanded ? (
             <span className="flex flex-row items-center">
-              Ver menos <ChevronUp />
+              Mostrar Menos <ChevronUp size={20} />
             </span>
           ) : (
             <span className="flex flex-row items-center">
-              Ver más <ChevronDown />
+              Mostrar Mas <ChevronDown size={20} />
             </span>
           )}
         </Button>
