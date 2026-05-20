@@ -8,7 +8,7 @@ export default function UserProfile() {
     <div className="p-4 rounded-lg shadow bg-white">
       <p className="font-bold text-lg">{user.nickname || user.name}</p>
       <p className="text-sm text-slate-500">{user.email}</p>
-      <Button onClick={() => logout()}>
+      <Button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
         Salir
       </Button>
     </div>

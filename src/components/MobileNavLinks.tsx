@@ -9,7 +9,7 @@ export default function MobileNavLinks() {
         <Link to="/user-profile" className="flex items-center px-3 font-bold hover:text-orange-500 mx-4">
             Perfil
         </Link>
-        <Button onClick={()=>logout()} className="flex items-center px-3 font-bold hover:text-orange-500 mx-4">
+        <Button onClick={()=>logout({ logoutParams: { returnTo: window.location.origin } })} className="flex items-center px-3 font-bold hover:text-orange-500 mx-4">
             Salir
         </Button>
     </>
