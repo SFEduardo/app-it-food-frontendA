@@ -16,6 +16,8 @@ export default defineConfig({
       key:'myfoodapp-privateKey.key',
       cert:'myfoodapp.crt'
     }
+  },
+  build: {
+    chunkSizeWarningLimit: 1600,
   }
-    
 })
