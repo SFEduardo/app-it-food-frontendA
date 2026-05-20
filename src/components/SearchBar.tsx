@@ -9,7 +9,7 @@ import { useEffect } from "react";
 
 const formSchema = z.object({
   searchQuery: z.string({
-    required_error: "Se requiere un término de búsqueda",
+    message: "Se requiere un término de búsqueda",
   }),
 });
 
@@ -47,9 +47,8 @@ const SearchBar = ({ onSubmit, onReset, placeHolder, searchQuery }: Props) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className={`flex items-center flex-1 gap-3 justify-between flex-row ${
-          form.formState.errors.searchQuery ? "border-red-500" : ""
-        }`}
+        className={`flex items-center flex-1 gap-3 justify-between flex-row ${form.formState.errors.searchQuery ? "border-red-500" : ""
+          }`}
       >
         <FormField
           control={form.control}
