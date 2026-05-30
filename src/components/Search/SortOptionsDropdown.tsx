@@ -1,53 +1,41 @@
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
-import { buttonVariants } from "../ui/button";
-type Props = {
-  onChange: (value: string) => void;
-  sortOption: string;
-};
+import { buttonVariants } from "../ui/button"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu"
 
+type Props = {
+  onChange: (value: string) => void
+  sortOptions: string
+}
 const SORT_OPTIONS = [
   {
     label: "Mejor coincidencia",
-    value: "bestMatch",
-  },
-  {
+    value: "bestMatch"
+  }, {
     label: "Precio de entrega",
-    value: "deliverPrice",
-  },
-  {
+    value: "deliverPrice"
+  }, {
     label: "Tiempo estimado de entrega",
-    value: "estimatedDeliveryTime",
-  },
-];
-
-const SortOptionsDropdown = ({ onChange, sortOption }: Props) => {
-  const selectedSortLabel =
-    SORT_OPTIONS.find((option) => option.value === sortOption)?.label ||
-    SORT_OPTIONS[0].label;
-
+    value: "estimatedDeliveryTime"
+  }
+]
+export default function SortOptionsDropdown({ onChange, sortOptions }: Props) {
+  const selectedSortLabel = SORT_OPTIONS.find((option) => option.value === sortOptions)?.label || SORT_OPTIONS[0].label;
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger className={buttonVariants({ variant: "outline", className: "cursor-pointer" })}>
-        Ordenar por: {selectedSortLabel}
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="p-2 space-y-2" sideOffset={8}>
-        {SORT_OPTIONS.map((option) => (
-          <DropdownMenuItem
-            className="cursor-pointer py-2"
-            onClick={() => onChange(option.value)}
-            key={option.value}
-          >
-            {option.label}
-          </DropdownMenuItem>
-        ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
-  );
-};
-
-export default SortOptionsDropdown;
+    <div className="text-xl font-bold flex flex-col gap-3 justify-between lg:items-center lg:flex-row">
+      <DropdownMenu>
+        <DropdownMenuTrigger className={buttonVariants({ variant: "outline", className: "w-full cursor-pointer font-bold" })}>
+          Ordenar por: {selectedSortLabel}
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          {SORT_OPTIONS.map((option) => (
+            <DropdownMenuItem
+              key={option.value}
+              className="cursor-pointer"
+              onClick={() => onChange(option.value)}>
+              {option.label}
+            </DropdownMenuItem>
+          ))}
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </div>
+  )
+}

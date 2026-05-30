@@ -38,8 +38,7 @@ export type Restaurante = {
   imageUrl: string
   lastUpdated: string
 }
-
-export type RestaurantSearchResponse = {
+export type RestauranteSearchResponse = {
   data: Restaurante[]
   pagination: {
     total: number
@@ -47,3 +46,63 @@ export type RestaurantSearchResponse = {
     pages: number
   }
 }
+
+export type CartItem = {
+  _id: string
+  name: string
+  price: number
+  quantity: number
+}
+
+export type CheckOutSessionRequest = {
+  cartItems: {
+    menuItemId: string
+    name: string
+    quantity: string
+  }[]
+  deliveryDetails: {
+    email: string
+    name: string
+    address: string
+    city: string
+  }
+  restaurantId: string
+}
+
+export type CheckoutSessionResponse = {
+  url: string
+}
+
+export type OrderStatus = "placed" | "paid" | "inProgress" | "outForDelivery" | "delivered"
+
+export type Order = {
+  _id: string
+  restaurant: Restaurante
+  user: BackEndUser
+  deliveryDetails: {
+    name: string
+    address: string
+    city: string
+    email: string
+  }
+  cartItems: {
+    menuItemId: string
+    name: string
+    quantity: string
+  }[]
+  totalAmount: number
+  status: OrderStatus
+  createdAt: string
+}
+
+export type OrderStatusInfo = {
+  label: string
+  value: OrderStatus
+  progressiveValue: number
+}
+
+export type UpdateOrderStatusRequest = {
+  orderId: string
+  status: string
+}
+
